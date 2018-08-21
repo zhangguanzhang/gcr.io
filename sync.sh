@@ -153,7 +153,7 @@ image_pull(){
                     { rm -f $domain/$namespace/$image_name/latest.old;continue; } ||
                       rm $domain/$namespace/$image_name/latest{,.old}
             }
-            [ -f "$domain/$namespace/$image_name/$tag" ] && continue
+            [ -f "$domain/$namespace/$image_name/$tag" ] && { trvis_live;continue; }
             [[ $(df -h| awk  '$NF=="/"{print +$5}') -ge "$max_per" || -n $(sync_commit_check) ]] && { wait;img_clean $domain $namespace $image_name $@_latest_digest; }
             read -u5
             {
@@ -177,11 +177,15 @@ hub_tag_exist(){
 }
 
 
+trvis_live(){
+    [ $(( (`date +%s` - live_start_time)/60 )) -ge 8 ] && { live_start_time=$(date +%s);echo 'for live in the travis!'; }
+}
+
 sync_domain_repo(){
     path=$1
     while read name tag;do
         img_name=$( sed 's#/#'"$interval"'#g'<<<$name )
-        [ $(( (`date +%s` - live_start_time)/60 )) -ge 7 ] && { live_start_time=$(date +%s);echo 'for live in the travis!'; }
+        trvis_live
         read -u5
         {
             [ "$( hub_tag_exist $img_name $tag )" == null ] && rm -f $name/$tag
