@@ -14,7 +14,7 @@
 
 GOOLE_NAMESPACE:
 ```
-google_containers kubernetes-helm runconduit google-samples k8s-minikube tf-on-k8s-dogfood spinnaker-marketplace
+google_containers kubernetes-helm runconduit google-samples k8s-minikube tf-on-k8s-dogfood spinnaker-marketplace heptio-images
 ```
 QUAY_NAMESPACE:
 ```
