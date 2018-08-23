@@ -34,7 +34,7 @@ git_init(){
 git_commit(){
      local COMMIT_FILES_COUNT=$(git status -s|wc -l)
      local TODAY=$(date +%F)
-     if [ $COMMIT_FILES_COUNT -ne 0 ];then
+     if [[ $COMMIT_FILES_COUNT -ne 0 && $(( (`date +%s` - start_time)/60 ))  -gt 45 ]];then
         git add -A
         git commit -m "Synchronizing completion at $TODAY"
         git push -u origin develop
@@ -102,7 +102,7 @@ img_clean(){
         docker push $img:$tag;docker rmi $img:$tag;
         [ "$tag" != latest ] && echo $domain/$namespace/$image_name:$tag > $domain/$namespace/$image_name/$tag ||
             $@ $domain/$namespace/$image_name > $domain/$namespace/$image_name/$tag
-        [ $(( (`date +%s` - start_time)/60 ))  -gt 45 ] && git_commit
+        git_commit
     done < <(docker images --format {{.Repository}}' '{{.Tag}}' '{{.Size}} | awk -vcut=$MY_REPO/$Prefix '$0~cut{print $0 | "sort -hk3" }')
     git_commit
 }
@@ -198,7 +198,6 @@ sync_domain_repo(){
 
 
 main(){
-    readonly start_time=$(date +%s)
     git_init
     install_sdk
     auth_sdk
@@ -217,10 +216,18 @@ main(){
     for repo in ${GOOLE_NAMESPACE[@]};do
         image_pull gcr.io/$repo google
         sed -i '/'"$repo"'/d' $google_list;echo "$repo" >> $google_list
-        git_commit
     done
 
     exec 5>&-;exec 5<&-
+    
+    COMMIT_FILES_COUNT=$(git status -s|wc -l)
+    TODAY=$(date +%F)
+    if [ $COMMIT_FILES_COUNT -ne 0 ];then
+        git add -A
+        git commit -m "Synchronizing completion at $TODAY"
+        git push -u origin develop
+    fi
 }
 
 main
+

@@ -14,6 +14,7 @@ install:
 script:
 - "bash  ./sync.sh 10"
 before_install:
+- export start_time=$(date +%s)
 - mkdir -p ~/.docker
 - mkdir -p ~/.ssh 
 - openssl aes-256-cbc -K $encrypted_79f048dff636_key -iv $encrypted_79f048dff636_iv
