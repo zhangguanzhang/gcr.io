@@ -1,4 +1,4 @@
-gcr.io/istio-release/
+istio-release
 google_containers
 kubernetes-helm
 runconduit
