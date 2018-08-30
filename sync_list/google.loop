@@ -1,4 +1,3 @@
-spinnaker-marketplace
 istio-release
 google_containers
 kubernetes-helm
@@ -7,3 +6,4 @@ google-samples
 k8s-minikube
 heptio-images
 tf-on-k8s-dogfood
+spinnaker-marketplace
