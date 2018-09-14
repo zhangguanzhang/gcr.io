@@ -10,3 +10,4 @@ heptio-images
 tf-on-k8s-dogfood
 spinnaker-marketplace
 istio-release
+kubernetes-e2e-test-images
