@@ -209,7 +209,9 @@ main(){
         date +%s > sync_check
     }
     exec 5>&-;exec 5<&-
-
+    
+    echo 'start sync the images'
+    
     Multi_process_init $max_process
 
     GOOLE_NAMESPACE=(`xargs -n1 < $google_list`)
