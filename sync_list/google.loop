@@ -1,3 +1,6 @@
+google_containers
+kubernetes-helm
+runconduit
 google-samples
 k8s-minikube
 heptio-images
@@ -8,6 +11,3 @@ kubernetes-e2e-test-images
 cloud-datalab
 linkerd-io
 distroless
-google_containers
-kubernetes-helm
-runconduit
