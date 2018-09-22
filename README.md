@@ -12,6 +12,7 @@
  * 2018/07/29 - travis 10分钟不输出会中断,文件check不输出会超时,增加live输出达到存活
  * 2018/08/20 - 文件太多,分为两个仓库同步
  * 2018/09/22 - gcloud-sdk报错,改成http接口查询各项信息
+
 GOOLE_NAMESPACE:
 ```
 google_containers kubernetes-helm runconduit google-samples k8s-minikube heptio-images tf-on-k8s-dogfood spinnaker-marketplace istio-release kubernetes-e2e-test-images cloud-datalab linkerd-io distroless
