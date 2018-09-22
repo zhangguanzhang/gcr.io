@@ -1,3 +1,6 @@
+istio-release
+kubernetes-e2e-test-images
+cloud-datalab
 linkerd-io
 distroless
 google_containers
@@ -8,6 +11,3 @@ k8s-minikube
 heptio-images
 tf-on-k8s-dogfood
 spinnaker-marketplace
-istio-release
-kubernetes-e2e-test-images
-cloud-datalab
