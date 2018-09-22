@@ -127,7 +127,7 @@ google::name(){
 }
 google::tag(){
     read null ns name< <(tr '/' ' '<<<$@)
-    curl -ks -XGET https://gcr.io/v2/${ns}/${name}/tags/list | jq .tags[]
+    curl -ks -XGET https://gcr.io/v2/${ns}/${name}/tags/list | jq -r .tags[]
 }
 google::latest_digest(){
     read null ns name< <(tr '/' ' '<<<$@)
