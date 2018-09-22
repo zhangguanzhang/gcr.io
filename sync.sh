@@ -176,7 +176,7 @@ image_pull(){
                 [ -n "$tag" ] && image_tag $SYNC_IMAGE_NAME $tag $MY_REPO/$MY_REPO_IMAGE_NAME
                 echo >&5
             }&
-        done < <($@::tag $SYNC_IMAGE_NAME)
+        done < <($@::tag $REPOSITORY/$SYNC_IMAGE_NAME)
         wait
         img_clean $domain $namespace $image_name $@::latest::digest
     done < <($@::name $REPOSITORY)
