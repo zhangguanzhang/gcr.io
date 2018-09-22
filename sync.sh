@@ -126,10 +126,12 @@ google::name(){
         awk -F'"' '/"/{if(NR==3){if(!a[$4]++)print $4}else{if(!a[$2]++)print $2}}'
 }
 google::tag(){
-    curl -ks -XGET https://gcr.io/v2/${1}/${2}/tags/list | jq .tags[]
+    read null ns name< <(tr '/' ' '<<<$@)
+    curl -ks -XGET https://gcr.io/v2/${ns}/${name}/tags/list | jq .tags[]
 }
 google::latest_digest(){
-    curl -ks -XGET https://gcr.io/v2/${1}/${2}/tags/list | jq -r '.manifest | with_entries(select(.value.tag[] == "latest"))|keys[]'
+    read null ns name< <(tr '/' ' '<<<$@)
+    curl -ks -XGET https://gcr.io/v2/${ns}/${name}/tags/list | jq -r '.manifest | with_entries(select(.value.tag[] == "latest"))|keys[]'
 }
 
 #quay::name(){
