@@ -176,7 +176,7 @@ image_pull(){
             }&
         done < <($@::tag $SYNC_IMAGE_NAME)
         wait
-        img_clean $domain $namespace $image_name $@::latest::digest
+        img_clean $domain $namespace $image_name $@::latest_digest
     done < <($@::name $REPOSITORY)
 }
 
