@@ -123,7 +123,7 @@ google::name(){
            -H 'Content-Type: application/json;charset=UTF-8' \
            -H 'Accept: application/json, text/plain, */*' \
            --data-binary ['"'"${@#*/}"'"']   |
-        awk -F'"' '/"/{if(NR==3){if(!a[$4]++)print $4}else{if(!a[$2]++)print $2}}'
+        awk -vio=$@ -F'"' '/"/{if(NR==3){if(!a[$4]++)print io"/"$4}else{if(!a[$2]++)print io"/"$2}}'
 }
 google::tag(){
     read null ns name< <(tr '/' ' '<<<$@)
@@ -176,7 +176,7 @@ image_pull(){
                 [ -n "$tag" ] && image_tag $SYNC_IMAGE_NAME $tag $MY_REPO/$MY_REPO_IMAGE_NAME
                 echo >&5
             }&
-        done < <($@::tag $REPOSITORY/$SYNC_IMAGE_NAME)
+        done < <($@::tag $SYNC_IMAGE_NAME)
         wait
         img_clean $domain $namespace $image_name $@::latest::digest
     done < <($@::name $REPOSITORY)
@@ -246,4 +246,3 @@ main(){
 }
 
 main
-
