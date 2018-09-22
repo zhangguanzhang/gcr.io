@@ -11,14 +11,14 @@
  * 2018/07/26 - 增加loop文件,实现每次travis超时后下次还能从上次的namespace继续同步实现loop
  * 2018/07/29 - travis 10分钟不输出会中断,文件check不输出会超时,增加live输出达到存活
  * 2018/08/20 - 文件太多,分为两个仓库同步
-
+ * 2018/09/22 - gcloud-sdk报错,改成http接口查询各项信息
 GOOLE_NAMESPACE:
 ```
-google_containers kubernetes-helm runconduit google-samples k8s-minikube tf-on-k8s-dogfood spinnaker-marketplace heptio-images
+google_containers kubernetes-helm runconduit google-samples k8s-minikube heptio-images tf-on-k8s-dogfood spinnaker-marketplace istio-release kubernetes-e2e-test-images cloud-datalab linkerd-io distroless
 ```
 QUAY_NAMESPACE:
 ```
-calico coreos prometheus outline weaveworks hellofresh kubernetes-ingress-controller replicated kubernetes-service-catalog 3scale wire
+coreos wire calico prometheus outline weaveworks hellofresh kubernetes-ingress-controller replicated kubernetes-service-catalog 3scale
 ```
 同步以上镜像,另外
 k8s.gcr.io <==> gcr.io/google-containers <==> gcr.io/google_containers 
@@ -78,23 +78,23 @@ foo(){
         while read tag;do
             echo docker pull $img:$tag
             echo docker push repo/$img:$tag
-        done < <( $@_get_img_tags $img)
-    done < <( $@_get_names )
+        done < <( $@::get_img_tags $img)
+    done < <( $@::get_names )
 }
 
 
-google_get_names(){
+google::get_names(){
 
 }
 
-google_get_img_tags(){
+google::get_img_tags(){
 
 }
 
-quay_io_get_names(){
+quay_io::get_names(){
 
 }
-quay_io_get_img_tags(){
+quay_io::get_img_tags(){
 
 }
 
@@ -102,3 +102,4 @@ quay_io_get_img_tags(){
 foo google
 foo quay_io
 ```
+

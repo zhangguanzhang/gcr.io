@@ -107,25 +107,39 @@ img_clean(){
     git_commit
 }
 
-google_name(){
-    gcloud container images list --repository=$@ --format="value(NAME)"
+# google::name(){
+#     gcloud container images list --repository=$@ --format="value(NAME)"
+# }
+# google::tag(){
+#     gcloud container images list-tags $@  --format="get(TAGS)" --filter='tags:*' | sed 's#;#\n#g'
+# }
+# google::latest::digest(){
+#     gcloud container images list-tags --format='get(DIGEST)' $@ --filter="tags=latest"
+# }
+
+google::name(){
+    curl -XPOST -ks 'https://console.cloud.google.com/m/gcr/entities/list' \
+           -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.7 Safari/537.36' \
+           -H 'Content-Type: application/json;charset=UTF-8' \
+           -H 'Accept: application/json, text/plain, */*' \
+           --data-binary ['"'"$@"'"']   |
+        awk -F'"' '/"/{if(NR==3){if(!a[$4]++)print $4}else{if(!a[$2]++)print $2}}'
 }
-google_tag(){
-    gcloud container images list-tags $@  --format="get(TAGS)" --filter='tags:*' | sed 's#;#\n#g'
+google::tag(){
+    curl -ks -XGET https://gcr.io/v2/${1}/${2}/tags/list | jq .tags[]
 }
-google_latest_digest(){
-    gcloud container images list-tags --format='get(DIGEST)' $@ --filter="tags=latest"
+google::latest_digest(){
+    curl -ks -XGET https://gcr.io/v2/${1}/${2}/tags/list | jq -r '.manifest | with_entries(select(.value.tag[] == "latest"))|keys[]'
 }
 
-
-#quay_name(){
+#quay::name(){
 #    NS=${1#*/}
 #    curl -sL 'https://quay.io/api/v1/repository?public=true&namespace='${NS} | jq -r '"quay.io/'${NS}'/"'" + .repositories[].name"
 #}
-#quay_tag(){
+#quay::tag(){
 #    curl -sL "https://quay.io/api/v1/repository/${@#*/}?tag=info"  | jq -r .tags[].name
 #}
-#quay_latest_digest(){
+#quay::latest_digest(){
 # #    curl -sL "https://quay.io/api/v1/repository/prometheus/alertmanager/tag" | jq -r '.tags[]|select(.name == "latest" and (.|length) == 5 ).manifest_digest'
 #   curl -sL "https://quay.io/api/v1/repository/${@#*/}?tag=info" | jq -r '.tags[]|select(.name == "latest" and (has("end_ts")|not) ).manifest_digest'
 #}
@@ -148,22 +162,22 @@ image_pull(){
         while read tag;do
         #处理latest标签
             [[ "$tag" == latest && -f "$domain/$namespace/$image_name"/latest.old ]] && {
-                $@_latest_digest $SYNC_IMAGE_NAME > $domain/$namespace/$image_name/latest
+                $@::latest_digest $SYNC_IMAGE_NAME > $domain/$namespace/$image_name/latest
                 diff $domain/$namespace/$image_name/latest{,.old} &>/dev/null &&
                     { rm -f $domain/$namespace/$image_name/latest.old;continue; } ||
                       rm $domain/$namespace/$image_name/latest{,.old}
             }
             [ -f "$domain/$namespace/$image_name/$tag" ] && { trvis_live;continue; }
-            [[ $(df -h| awk  '$NF=="/"{print +$5}') -ge "$max_per" || -n $(sync_commit_check) ]] && { wait;img_clean $domain $namespace $image_name $@_latest_digest; }
+            [[ $(df -h| awk  '$NF=="/"{print +$5}') -ge "$max_per" || -n $(sync_commit_check) ]] && { wait;img_clean $domain $namespace $image_name $@::latest_digest; }
             read -u5
             {
                 [ -n "$tag" ] && image_tag $SYNC_IMAGE_NAME $tag $MY_REPO/$MY_REPO_IMAGE_NAME
                 echo >&5
             }&
-        done < <($@_tag $SYNC_IMAGE_NAME)
+        done < <($@::tag $SYNC_IMAGE_NAME)
         wait
-        img_clean $domain $namespace $image_name $@_latest_digest
-    done < <($@_name $REPOSITORY)
+        img_clean $domain $namespace $image_name $@::latest::digest
+    done < <($@::name $REPOSITORY)
 }
 
 sync_commit_check(){
@@ -199,8 +213,8 @@ sync_domain_repo(){
 
 main(){
     git_init
-    install_sdk
-    auth_sdk
+    # install_sdk
+    # auth_sdk
     Multi_process_init $(( max_process * 4 ))
     live_start_time=$(date +%s)
     read sync_time < sync_check
@@ -209,9 +223,7 @@ main(){
         date +%s > sync_check
     }
     exec 5>&-;exec 5<&-
-    
-    echo 'start sync the images'
-    
+
     Multi_process_init $max_process
 
     GOOLE_NAMESPACE=(`xargs -n1 < $google_list`)
