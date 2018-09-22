@@ -122,7 +122,7 @@ google::name(){
            -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.7 Safari/537.36' \
            -H 'Content-Type: application/json;charset=UTF-8' \
            -H 'Accept: application/json, text/plain, */*' \
-           --data-binary ['"'"$@"'"']   |
+           --data-binary ['"'"${@#*/}"'"']   |
         awk -F'"' '/"/{if(NR==3){if(!a[$4]++)print $4}else{if(!a[$2]++)print $2}}'
 }
 google::tag(){
