@@ -204,6 +204,7 @@ sync_domain_repo(){
         trvis_live
         read -u5
         {
+            echo $img_name $tag
             [ "$( hub_tag_exist $img_name $tag )" == null ] && rm -f $name/$tag
             echo >&5
         }&
