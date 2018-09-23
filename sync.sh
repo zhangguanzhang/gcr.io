@@ -218,7 +218,7 @@ main(){
     git_init
     # install_sdk
     # auth_sdk
-    Multi_process_init $(( max_process * 4 ))
+    Multi_process_init $(( max_process * 5 ))
     live_start_time=$(date +%s)
     read sync_time < sync_check
     [ $(( (`date +%s` - sync_time)/3600 )) -ge 6 ] && {
