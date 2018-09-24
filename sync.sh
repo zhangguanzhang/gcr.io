@@ -202,10 +202,10 @@ sync_domain_repo(){
     while read name tag;do
         img_name=$( sed 's#/#'"$interval"'#g'<<<$name )
         trvis_live
-        [[ $(( (`date +%s` - start_time)/60 )) -gt 46 ]] && git_commit
+        [[ $(( (`date +%s` - start_time)/60 )) -gt 45 ]] && git_commit
         read -u5
         {
-            echo $img_name $tag
+#            echo $img_name $tag
             [ "$( hub_tag_exist $img_name $tag )" == null ] && rm -f $name/$tag
             echo >&5
         }&
@@ -236,6 +236,7 @@ main(){
             sed -i '/'$ns'/d' sync_list_ns
         done
         rm -f sync_list_ns
+        echo the sync has done! 
         date +%s > sync_check
         git_commit
     }
