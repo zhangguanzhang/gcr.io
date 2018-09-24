@@ -215,6 +215,7 @@ sync_domain_repo(){
 
 
 main(){
+    [ -z "$start_time" ] && start_time=$(date +%s)
     git_init
     # install_sdk
     # auth_sdk
@@ -226,13 +227,17 @@ main(){
         allns=(`xargs -n1 < sync_list_ns`)
 
         for ns in $allns;do 
+            echo the ns is $ns
             [ ! -f sync_list_name ] && ls gcr.io/$ns > sync_list_name
             allname=(`xargs -n1 < sync_list_name`)
-            for name in $allname;do 
+            for name in $allname;do
+                echo ths name is $name
                 sync_domain_repo gcr.io/$ns/$name
+                echo ths name is $name
                 sed -i '/'$name'/d' sync_list_name
             done
             rm -f sync_list_name
+            echo the ns is $ns
             sed -i '/'$ns'/d' sync_list_ns
         done
         rm -f sync_list_ns
