@@ -232,10 +232,13 @@ main(){
             [ ! -f sync_list_name ] && ls gcr.io/$ns > sync_list_name
             allname=(`xargs -n1 < sync_list_name`)
             for name in $allname;do
-                echo ths name is $name
+                echo the name is $name
+                line=$( grep -Pon '\Q'"$name"'\E' sync_list_name | cut -d':' -f1 )
+                echo the line is $line
                 sync_domain_repo gcr.io/$ns/$name
-                echo ths name is $name
-                sed -i '/'$name'/d' sync_list_name
+                echo the name is $name
+                echo the line is $line
+                sed -i '/'$line'/d' sync_list_name
             done
             rm -f sync_list_name
             echo the ns is $ns
