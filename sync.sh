@@ -202,7 +202,7 @@ sync_domain_repo(){
     while read name tag;do
         img_name=$( sed 's#/#'"$interval"'#g'<<<$name )
         trvis_live
-        [[ $(( (`date +%s` - start_time)/60 )) -gt 45 ]] && git_commit
+        
         read -u5
         {
 #            echo $img_name $tag
@@ -211,6 +211,7 @@ sync_domain_repo(){
         }&
     done < <( find $path/ -type f | sed 's#/# #3' )
     wait
+    git_commit
 }
 
 
@@ -219,7 +220,7 @@ main(){
     git_init
     # install_sdk
     # auth_sdk
-    Multi_process_init $(( max_process * 5 ))
+    Multi_process_init $(( max_process * 4 ))
     live_start_time=$(date +%s)
     read sync_time < sync_check
     [ $(( (`date +%s` - sync_time)/3600 )) -ge 6 ] && {
