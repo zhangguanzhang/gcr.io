@@ -201,11 +201,9 @@ sync_domain_repo(){
     path=${1%/}
     while read name tag;do
         img_name=$( sed 's#/#'"$interval"'#g'<<<$name )
-        trvis_live
-        
+        trvis_live       
         read -u5
         {
-#            echo $img_name $tag
             [ "$( hub_tag_exist $img_name $tag )" == null ] && rm -f $name/$tag
             echo >&5
         }&
@@ -227,17 +225,14 @@ main(){
         [ ! -f sync_list_ns ] && ls gcr.io > sync_list_ns
         allns=(`xargs -n1 < sync_list_ns`)
 
-        for ns in $allns;do 
+        for ns in ${allns[@]};do 
             echo the ns is $ns
             [ ! -f sync_list_name ] && ls gcr.io/$ns > sync_list_name
             allname=(`xargs -n1 < sync_list_name`)
-            for name in $allname;do
+            for name in ${allname[@]};do
                 echo the name is $name
                 line=$( grep -Pon '\Q'"$name"'\E' sync_list_name | cut -d':' -f1 )
-                echo the line is $line
                 sync_domain_repo gcr.io/$ns/$name
-                echo the name is $name
-                echo the line is $line
                 sed -i '/'$line'/d' sync_list_name
             done
             rm -f sync_list_name
