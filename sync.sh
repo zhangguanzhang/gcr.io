@@ -199,6 +199,7 @@ trvis_live(){
 
 sync_domain_repo(){
     path=${1%/}
+    local name tag
     while read name tag;do
         img_name=$( sed 's#/#'"$interval"'#g'<<<$name )
         trvis_live       
