@@ -215,8 +215,6 @@ sync_domain_repo(){
 
 
 main(){
-
-    set -x 
     
     [ -z "$start_time" ] && start_time=$(date +%s)
     git_init
@@ -230,21 +228,13 @@ main(){
         allns=(`xargs -n1 < sync_list_ns`)
 
         for ns in ${allns[@]};do 
-            echo the ns is $ns
             [ ! -f sync_list_name ] && ls gcr.io/$ns > sync_list_name
             allname=(`xargs -n1 < sync_list_name`)
             for name in ${allname[@]};do
-                echo the name is $name
-                echo sync_domain_repo gcr.io/$ns/$name
                 sync_domain_repo gcr.io/$ns/$name
-                wait
-                echo $name
-                echo perl  -i -lne 'print if $_ ne "'$name'"' sync_list_name
                 perl  -i -lne 'print if $_ ne "'$name'"' sync_list_name
             done
             rm -f sync_list_name
-            echo the ns is $ns
-            echo perl  -i -lne 'print if $_ ne "'$ns'"' sync_list_ns
             perl  -i -lne 'print if $_ ne "'$ns'"' sync_list_ns
         done
         rm -f sync_list_ns
@@ -253,8 +243,6 @@ main(){
         git_commit
     }
     exec 5>&-;exec 5<&-
-    
-    set +x
     
     Multi_process_init $max_process
 
