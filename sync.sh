@@ -231,9 +231,11 @@ main(){
             allname=(`xargs -n1 < sync_list_name`)
             for name in ${allname[@]};do
                 echo the name is $name
+                echo sync_domain_repo gcr.io/$ns/$name
                 sync_domain_repo gcr.io/$ns/$name
-                echo perl  -i -lne 'print if $_ ne "'$name'"' sync_list_name
                 wait
+                echo $name
+                echo perl  -i -lne 'print if $_ ne "'$name'"' sync_list_name
                 perl  -i -lne 'print if $_ ne "'$name'"' sync_list_name
             done
             rm -f sync_list_name
