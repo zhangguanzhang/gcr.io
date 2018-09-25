@@ -232,7 +232,9 @@ main(){
             for name in ${allname[@]};do
                 echo the name is $name
                 line=$( grep -Pon '\Q'"$name"'\E' sync_list_name | cut -d':' -f1 )
+                echo line is $line
                 sync_domain_repo gcr.io/$ns/$name
+                echo line is $line
                 sed -i '/'$line'/d' sync_list_name
             done
             rm -f sync_list_name
