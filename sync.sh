@@ -231,7 +231,7 @@ main(){
             allname=(`xargs -n1 < sync_list_name`)
             for name in ${allname[@]};do
                 echo the name is $name
-                line=$( grep -Pon '\Q'"$name"'\E' sync_list_name | cut -d':' -f1 )
+                line=$( grep -Pon '^\Q'"$name"'\E$' sync_list_name | cut -d':' -f1 )
                 echo line is $line
                 sync_domain_repo gcr.io/$ns/$name
                 echo line is $line
