@@ -233,6 +233,7 @@ main(){
                 echo the name is $name
                 sync_domain_repo gcr.io/$ns/$name
                 echo perl  -i -lne 'print if $_ ne "'$name'"' sync_list_name
+                wait
                 perl  -i -lne 'print if $_ ne "'$name'"' sync_list_name
             done
             rm -f sync_list_name
