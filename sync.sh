@@ -231,15 +231,14 @@ main(){
             allname=(`xargs -n1 < sync_list_name`)
             for name in ${allname[@]};do
                 echo the name is $name
-                line=$( grep -Pon '^\Q'"$name"'\E$' sync_list_name | cut -d':' -f1 )
-                echo line is $line
                 sync_domain_repo gcr.io/$ns/$name
-                echo line is $line
-                sed -i '/'$line'/d' sync_list_name
+                echo perl  -i -lne 'print if $_ ne "'$name'"' sync_list_name
+                perl  -i -lne 'print if $_ ne "'$name'"' sync_list_name
             done
             rm -f sync_list_name
             echo the ns is $ns
-            sed -i '/'$ns'/d' sync_list_ns
+            echo perl  -i -lne 'print if $_ ne "'$ns'"' sync_list_ns
+            perl  -i -lne 'print if $_ ne "'$ns'"' sync_list_ns
         done
         rm -f sync_list_ns
         echo the sync has done! 
