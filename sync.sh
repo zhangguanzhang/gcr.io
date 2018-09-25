@@ -214,6 +214,9 @@ sync_domain_repo(){
 
 
 main(){
+
+    set -x 
+    
     [ -z "$start_time" ] && start_time=$(date +%s)
     git_init
     # install_sdk
@@ -249,7 +252,9 @@ main(){
         git_commit
     }
     exec 5>&-;exec 5<&-
-
+    
+    set +x
+    
     Multi_process_init $max_process
 
     GOOLE_NAMESPACE=(`xargs -n1 < $google_list`)
