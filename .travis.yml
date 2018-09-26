@@ -11,7 +11,6 @@ branches:
   - master
 install:
 - git remote -v
-- travis_wait 30 mvn install
 script:
 - "bash  ./sync.sh 10"
 before_install:
