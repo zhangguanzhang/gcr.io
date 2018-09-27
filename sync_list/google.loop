@@ -1,4 +1,3 @@
-linkerd-io
 distroless
 google_containers
 kubernetes-helm
@@ -11,3 +10,4 @@ spinnaker-marketplace
 istio-release
 kubernetes-e2e-test-images
 cloud-datalab
+linkerd-io
