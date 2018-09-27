@@ -1,7 +1,0 @@
-e2e
-localkube-dind-image
-localkube-dind-image-devshell
-localkube-image
-nginx-ingress-controller
-storage-provisioner
-tensorflow_grpc
