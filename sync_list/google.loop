@@ -1,3 +1,4 @@
+cloud-datalab
 linkerd-io
 distroless
 google_containers
@@ -12,4 +13,3 @@ istio-release
 kubernetes-e2e-test-images
 cloud-builders
 knative-releases
-cloud-datalab
