@@ -1,3 +1,7 @@
+cloud-datalab
+linkerd-io
+distroless
+google_containers
 kubernetes-helm
 runconduit
 google-samples
@@ -9,7 +13,3 @@ istio-release
 kubernetes-e2e-test-images
 cloud-builders
 knative-releases
-cloud-datalab
-linkerd-io
-distroless
-google_containers
