@@ -1,4 +1,3 @@
-nonewprivs-arm64
 nonewprivs-ppc64le
 no-snat-test
 no-snat-test-amd64
