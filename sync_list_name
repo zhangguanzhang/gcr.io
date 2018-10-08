@@ -1,4 +1,3 @@
-crd-conversion-webhook-arm64
 crd-conversion-webhook-ppc64le
 cuda-vector-add
 cuda-vector-add-amd64
