@@ -1,4 +1,3 @@
-apparmor-loader-arm64
 apparmor-loader-ppc64le
 clusterapi-tester
 clusterapi-tester-amd64
