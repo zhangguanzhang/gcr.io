@@ -1,4 +1,3 @@
-nonewprivs
 non-masquerade-daemon-amd64
 no-snat-test-amd64
 no-snat-test-proxy-amd64
