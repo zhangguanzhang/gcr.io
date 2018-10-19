@@ -1,4 +1,3 @@
-port-forward-tester-arm64
 port-forward-tester-ppc64le
 port-forward-tester-s390x
 profiling-toolbox-amd64
