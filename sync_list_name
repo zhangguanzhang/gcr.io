@@ -1,4 +1,3 @@
-entrypoint-tester-ppc64le
 entrypoint-tester-s390x
 fakegitserver
 fakegitserver-amd64
