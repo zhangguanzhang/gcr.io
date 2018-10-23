@@ -1,3 +1,9 @@
+google-samples
+k8s-minikube
+heptio-images
+tf-on-k8s-dogfood
+spinnaker-marketplace
+istio-release
 kubernetes-e2e-test-images
 cloud-builders
 knative-releases
@@ -7,9 +13,3 @@ distroless
 google_containers
 kubernetes-helm
 runconduit
-google-samples
-k8s-minikube
-heptio-images
-tf-on-k8s-dogfood
-spinnaker-marketplace
-istio-release
