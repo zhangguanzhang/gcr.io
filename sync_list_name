@@ -1,4 +1,3 @@
-sample-apiserver-arm64
 sample-apiserver-ppc64le
 sample-apiserver-s390x
 serve-hostname
