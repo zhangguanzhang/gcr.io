@@ -1,1 +1,12 @@
-tiller
+base
+cli-bin
+controller
+go-deps
+grafana
+grafana-perf
+nginx-with-curl
+proxy
+proxy-init
+proxy-timeline
+reporter
+web
