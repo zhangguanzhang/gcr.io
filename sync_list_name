@@ -1,0 +1,5 @@
+localkube-image
+minikube-e2e
+nginx-ingress-controller
+storage-provisioner
+tensorflow_grpc
