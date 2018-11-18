@@ -1,4 +1,3 @@
-echoserver-arm64
 echoserver-ppc64le
 entrypoint-tester
 entrypoint-tester-amd64
