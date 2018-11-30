@@ -30,12 +30,12 @@ k8s.gcr.io <==> gcr.io/google-containers <==> gcr.io/google_containers
 ### 拉取
 假设需要拉取gcr.io/google_containers/pause:3.0
 ```
-$ curl -s https://www.zhangguanzhang.com/pull | bash -s -- gcr.io/google_containers/pause:3.0
+$ curl -s https://zhangguanzhang.github.io/bash/pull.sh | bash -s -- gcr.io/google_containers/pause:3.0
 ```
 ### 查询
 #### 查询域名仓库下的namespace和namespace里的镜像列表
 ```
-$ curl -s https://www.zhangguanzhang.com/pull | bash -s search gcr.io
+$ curl -s https://zhangguanzhang.github.io/bash/pull.sh | bash -s search gcr.io
 google-samples
 google_containers
 k8s-minikube
@@ -43,7 +43,7 @@ kubernetes-helm
 runconduit
 spinnaker-marketplace
 tf-on-k8s-dogfood
-$ curl -s https://www.zhangguanzhang.com/pull | bash -s search gcr.io/google_containers
+$ curl -s https://zhangguanzhang.github.io/bash/pull.sh | bash -s search gcr.io/google_containers
 addon-builder
 addon-resizer-amd64
 addon-resizer-arm
@@ -55,14 +55,14 @@ addon-resizer-s390x
 
 #### 查询镜像的所有tag或者是否存在tag时
 ```
-$ curl -s https://www.zhangguanzhang.com/pull | bash -s -- search gcr.io/google_containers/kube-apiserver-amd64
+$ curl -s https://zhangguanzhang.github.io/bash/pull.sh | bash -s -- search gcr.io/google_containers/kube-apiserver-amd64
 v1.10.0-alpha.0
 v1.10.0-alpha.1
 v1.10.0-alpha.2
 v1.10.0-alpha.3
 v1.10.0-beta.0
 ......
-$ curl -s https://www.zhangguanzhang.com/pull | bash -s -- search gcr.io/google_containers/kube-apiserver-amd64:v1.9.3
+$ curl -s https://zhangguanzhang.github.io/bash/pull.sh | bash -s -- search gcr.io/google_containers/kube-apiserver-amd64:v1.9.3
 v1.9.3
 ```
 
