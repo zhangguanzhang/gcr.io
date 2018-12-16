@@ -1,4 +1,7 @@
 #!/bin/bash
+
+[ -n "$DEBUG" ] && set -x
+
 max_process=$1
 MY_REPO=zhangguanzhang
 interval=.
