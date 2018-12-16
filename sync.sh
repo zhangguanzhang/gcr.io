@@ -126,13 +126,19 @@ google::name(){
         awk -vio=$@ -F'"' '/"/{if(NR==3){if(!a[$4]++)print io"/"$4}else{if(!a[$2]++)print io"/"$2}}'
 }
 google::tag(){
-    read null ns name< <(tr '/' ' '<<<$@)
-    curl -ks -XGET https://gcr.io/v2/${ns}/${name}/tags/list | jq -r .tags[]
+    gcloud container images list-tags gcr.io/$@  --format="get(TAGS)" --filter='tags:*' | sed 's#;#\n#g'
 }
 google::latest_digest(){
-    read null ns name< <(tr '/' ' '<<<$@)
-    curl -ks -XGET https://gcr.io/v2/${ns}/${name}/tags/list | jq -r '.manifest | with_entries(select(.value.tag[] == "latest"))|keys[]'
+    gcloud container images list-tags --format='get(DIGEST)' gcr.io/$@ --filter="tags=latest"
 }
+# google::tag(){
+#     read null ns name< <(tr '/' ' '<<<$@)
+#     curl -ks -XGET https://gcr.io/v2/${ns}/${name}/tags/list | jq -r .tags[]
+# }
+# google::latest_digest(){
+#     read null ns name< <(tr '/' ' '<<<$@)
+#     curl -ks -XGET https://gcr.io/v2/${ns}/${name}/tags/list | jq -r '.manifest | with_entries(select(.value.tag[] == "latest"))|keys[]'
+# }
 
 #quay::name(){
 #    NS=${1#*/}
@@ -218,8 +224,8 @@ main(){
     
     [ -z "$start_time" ] && start_time=$(date +%s)
     git_init
-    # install_sdk
-    # auth_sdk
+    install_sdk
+    auth_sdk
     Multi_process_init $(( max_process * 4 ))
     live_start_time=$(date +%s)
     read sync_time < sync_check
