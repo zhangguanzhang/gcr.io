@@ -15,7 +15,7 @@
  
 GOOLE_NAMESPACE:
 ```
-google_containers kubernetes-helm runconduit google-samples k8s-minikube heptio-images tf-on-k8s-dogfood spinnaker-marketplace istio-release kubernetes-e2e-test-images cloud-datalab linkerd-io distroless
+google-appengine cloudsql-docker cloud-marketplace kubeflow-images-public spinnaker-marketplace istio-release kubernetes-e2e-test-images cloud-builders knative-releases cloud-datalab linkerd-io distroless google_containers kubernetes-helm runconduit google-samples k8s-minikube heptio-images tf-on-k8s-dogfood
 ```
 QUAY_NAMESPACE:
 ```
@@ -28,9 +28,10 @@ k8s.gcr.io <==> gcr.io/google-containers <==> gcr.io/google_containers
 ## How to use?
 
 ### 拉取
-假设需要拉取gcr.io/google_containers/pause:3.0
+假设需要拉取gcr.io/google_containers/pause:3.1 和 kube-apiserver-amd64
 ```
-$ curl -s https://zhangguanzhang.github.io/bash/pull.sh | bash -s -- gcr.io/google_containers/pause:3.0
+$ curl -s https://zhangguanzhang.github.io/bash/pull.sh | bash -s -- gcr.io/google_containers/pause:3.1
+$ curl -s https://zhangguanzhang.github.io/bash/pull.sh | bash -s -- gcr.io/google_containers/kube-apiserver-amd64:v1.11.3
 ```
 ### 查询
 #### 查询域名仓库下的namespace和namespace里的镜像列表
