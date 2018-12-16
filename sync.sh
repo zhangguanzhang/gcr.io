@@ -129,10 +129,10 @@ google::name(){
         awk -vio=$@ -F'"' '/"/{if(NR==3){if(!a[$4]++)print io"/"$4}else{if(!a[$2]++)print io"/"$2}}'
 }
 google::tag(){
-    gcloud container images list-tags gcr.io/$@  --format="get(TAGS)" --filter='tags:*' | sed 's#;#\n#g'
+    gcloud container images list-tags $@  --format="get(TAGS)" --filter='tags:*' | sed 's#;#\n#g'
 }
 google::latest_digest(){
-    gcloud container images list-tags --format='get(DIGEST)' gcr.io/$@ --filter="tags=latest"
+    gcloud container images list-tags --format='get(DIGEST)' $@ --filter="tags=latest"
 }
 # google::tag(){
 #     read null ns name< <(tr '/' ' '<<<$@)
