@@ -1,4 +1,3 @@
-cloud-marketplace
 kubeflow-images-public
 spinnaker-marketplace
 istio-release
@@ -17,3 +16,4 @@ heptio-images
 tf-on-k8s-dogfood
 google-appengine
 cloudsql-docker
+cloud-marketplace
