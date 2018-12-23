@@ -255,7 +255,7 @@ main(){
     
     Multi_process_init $max_process
 
-    GOOLE_NAMESPACE=(`xargs -n1 < $google_list`)
+    GOOLE_NAMESPACE=(`grep -v '#' $google_list` | xargs -n1 )
     for repo in ${GOOLE_NAMESPACE[@]};do
         image_pull gcr.io/$repo google
         sed -i '/'"$repo"'/d' $google_list;echo "$repo" >> $google_list
