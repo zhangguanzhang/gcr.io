@@ -1,5 +1,4 @@
 #kubeflow-images-public
-knative-releases
 cloud-datalab
 linkerd-io
 distroless
@@ -17,3 +16,4 @@ spinnaker-marketplace
 istio-release
 kubernetes-e2e-test-images
 cloud-builders
+knative-releases
