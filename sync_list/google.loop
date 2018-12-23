@@ -1,5 +1,4 @@
 #kubeflow-images-public
-cloud-builders
 knative-releases
 cloud-datalab
 linkerd-io
@@ -17,3 +16,4 @@ google_containers
 spinnaker-marketplace
 istio-release
 kubernetes-e2e-test-images
+cloud-builders
