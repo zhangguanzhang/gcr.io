@@ -1,5 +1,4 @@
 #kubeflow-images-public
-runconduit
 google-samples
 k8s-minikube
 heptio-images
@@ -17,3 +16,4 @@ cloud-datalab
 linkerd-io
 distroless
 kubernetes-helm
+runconduit
