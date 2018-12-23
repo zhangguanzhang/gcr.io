@@ -1,7 +1,4 @@
-google_containers
 #kubeflow-images-public
-spinnaker-marketplace
-istio-release
 kubernetes-e2e-test-images
 cloud-builders
 knative-releases
@@ -17,3 +14,6 @@ tf-on-k8s-dogfood
 google-appengine
 cloudsql-docker
 cloud-marketplace
+google_containers
+spinnaker-marketplace
+istio-release
