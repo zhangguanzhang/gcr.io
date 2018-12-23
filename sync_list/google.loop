@@ -1,3 +1,4 @@
+google_containers
 kubeflow-images-public
 spinnaker-marketplace
 istio-release
@@ -7,7 +8,6 @@ knative-releases
 cloud-datalab
 linkerd-io
 distroless
-google_containers
 kubernetes-helm
 runconduit
 google-samples
