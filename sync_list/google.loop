@@ -1,5 +1,4 @@
 #kubeflow-images-public
-google-samples
 k8s-minikube
 heptio-images
 tf-on-k8s-dogfood
@@ -17,3 +16,4 @@ linkerd-io
 distroless
 kubernetes-helm
 runconduit
+google-samples
