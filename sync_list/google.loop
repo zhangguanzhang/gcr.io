@@ -1,4 +1,7 @@
 #kubeflow-images-public
+google-appengine
+cloudsql-docker
+cloud-marketplace
 google_containers
 spinnaker-marketplace
 istio-release
@@ -14,6 +17,3 @@ google-samples
 k8s-minikube
 heptio-images
 tf-on-k8s-dogfood
-google-appengine
-cloudsql-docker
-cloud-marketplace
