@@ -1,5 +1,4 @@
 #kubeflow-images-public
-google-appengine
 cloudsql-docker
 cloud-marketplace
 google_containers
@@ -17,3 +16,4 @@ google-samples
 k8s-minikube
 heptio-images
 tf-on-k8s-dogfood
+google-appengine
