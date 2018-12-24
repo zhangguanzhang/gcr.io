@@ -1,5 +1,4 @@
 #kubeflow-images-public
-linkerd-io
 distroless
 kubernetes-helm
 runconduit
@@ -17,3 +16,4 @@ kubernetes-e2e-test-images
 cloud-builders
 knative-releases
 cloud-datalab
+linkerd-io
