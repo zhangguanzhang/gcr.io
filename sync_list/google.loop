@@ -1,10 +1,10 @@
-kubeflow-images-public
+google_samples
+google_containers
 heptio-images
 tf-on-k8s-dogfood
 google-appengine
 cloudsql-docker
 cloud-marketplace
-google_containers
 spinnaker-marketplace
 istio-release
 kubernetes-e2e-test-images
@@ -17,3 +17,4 @@ kubernetes-helm
 runconduit
 google-samples
 k8s-minikube
+kubeflow-images-public
