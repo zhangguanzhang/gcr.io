@@ -120,6 +120,7 @@ img_clean(){
 #     gcloud container images list-tags --format='get(DIGEST)' $@ --filter="tags=latest"
 # }
 
+# example: gcr.io/$ns  return gcr.io/$ns/$img_name
 google::name(){
     curl -XPOST -ks 'https://console.cloud.google.com/m/gcr/entities/list' \
            -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.7 Safari/537.36' \
@@ -128,9 +129,11 @@ google::name(){
            --data-binary ['"'"${@#*/}"'"']   |
         awk -vio=$@ -F'"' '/"/{if(NR==3){if(!a[$4]++)print io"/"$4}else{if(!a[$2]++)print io"/"$2}}'
 }
+# example: gcr.io/$ns/$img_name return $tag
 google::tag(){
     gcloud container images list-tags $@  --format="get(TAGS)" --filter='tags:*' | sed 's#;#\n#g'
 }
+# example: gcr.io/$ns/$img_name return $sha256
 google::latest_digest(){
     gcloud container images list-tags --format='get(DIGEST)' $@ --filter="tags=latest"
 }
@@ -165,6 +168,7 @@ image_pull(){
     Prefix=$domain$interval$namespace$interval
     # REPOSITORY is the name of the dir,convert the '/' to '.',and cut the last '.'
     [ ! -d "$domain/$namespace" ] && mkdir -p $domain/$namespace
+    # gcr.io/$ns/$img_name
     while read SYNC_IMAGE_NAME;do
         image_name=${SYNC_IMAGE_NAME##*/}
         MY_REPO_IMAGE_NAME=${Prefix}${image_name}
@@ -180,11 +184,15 @@ image_pull(){
             }
             [ -f "$domain/$namespace/$image_name/$tag" ] && { trvis_live;continue; }
             [[ $(df -h| awk  '$NF=="/"{print +$5}') -ge "$max_per" || -n $(sync_commit_check) ]] && { wait;img_clean $domain $namespace $image_name $@::latest_digest; }
-            read -u5
-            {
-                [ -n "$tag" ] && image_tag $SYNC_IMAGE_NAME $tag $MY_REPO/$MY_REPO_IMAGE_NAME
-                echo >&5
-            }&
+            [[ "$image_name" == "$big_tag" ]] && {
+                image_tag $SYNC_IMAGE_NAME $tag $MY_REPO/$MY_REPO_IMAGE_NAME
+            } || {
+                read -u5
+                {
+                    [ -n "$tag" ] && image_tag $SYNC_IMAGE_NAME $tag $MY_REPO/$MY_REPO_IMAGE_NAME
+                    echo >&5
+                }&
+            }
         done < <($@::tag $SYNC_IMAGE_NAME)
         wait
         img_clean $domain $namespace $image_name $@::latest_digest
