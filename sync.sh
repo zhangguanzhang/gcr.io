@@ -5,7 +5,7 @@
 max_process=$1
 MY_REPO=zhangguanzhang
 interval=.
-max_per=70
+: ${max_per:=70} ${push_time:=45}
 google_list=sync_list/google.loop
 #--------------------------
 
@@ -37,7 +37,7 @@ git_init(){
 git_commit(){
      local COMMIT_FILES_COUNT=$(git status -s|wc -l)
      local TODAY=$(date +%F)
-     if [[ $COMMIT_FILES_COUNT -ne 0 && $(( (`date +%s` - start_time)/60 ))  -gt 45 ]];then
+     if [[ $COMMIT_FILES_COUNT -ne 0 && $(( (`date +%s` - start_time)/60 ))  -gt $push_time ]];then
         git add -A
         git commit -m "Synchronizing completion at $TODAY"
         git push -u origin develop
@@ -201,7 +201,7 @@ image_pull(){
 }
 
 sync_commit_check(){
-    [[ $(( (`date +%s` - start_time)/60 )) -gt 40 || -n "$(docker images | awk '$NF~"GB"')" ]] &&
+    [[ $(( (`date +%s` - start_time)/60 )) -gt $push_time || -n "$(docker images | awk '$NF~"GB"')" ]] &&
         echo ture || false
 }
 
