@@ -184,16 +184,16 @@ image_pull(){
             }
             [ -f "$domain/$namespace/$image_name/$tag" ] && { trvis_live;continue; }
             [[ $(df -h| awk  '$NF=="/"{print +$5}') -ge "$max_per" || -n $(sync_commit_check) ]] && { wait;img_clean $domain $namespace $image_name $@::latest_digest; }
-            [[ "$image_name" =~ "$big_tag" ]] && {
-                image_tag $SYNC_IMAGE_NAME $tag $MY_REPO/$MY_REPO_IMAGE_NAME
-                img_clean $domain $namespace $image_name $@::latest_digest
-            } || {
+#             [[ "$image_name" =~ "$big_tag" ]] && {
+#                 image_tag $SYNC_IMAGE_NAME $tag $MY_REPO/$MY_REPO_IMAGE_NAME
+#                 img_clean $domain $namespace $image_name $@::latest_digest
+#             } || {
                 read -u5
                 {
                     [ -n "$tag" ] && image_tag $SYNC_IMAGE_NAME $tag $MY_REPO/$MY_REPO_IMAGE_NAME
                     echo >&5
                 }&
-            }
+#             }
         done < <($@::tag $SYNC_IMAGE_NAME)
         wait
         img_clean $domain $namespace $image_name $@::latest_digest
