@@ -2,10 +2,9 @@
 
 [ -n "$DEBUG" ] && set -x
 
-max_process=$1
 MY_REPO=zhangguanzhang
 interval=.
-: ${max_per:=70} ${push_time:=45}
+: ${max_process:=10} ${max_per:=70} ${push_time:=45}
 google_list=sync_list/google.loop
 #--------------------------
 
@@ -236,8 +235,6 @@ main(){
     
     [ -z "$start_time" ] && start_time=$(date +%s)
     git_init
-    install_sdk
-    auth_sdk
     Multi_process_init $(( max_process * 4 ))
     live_start_time=$(date +%s)
     read sync_time < sync_check
@@ -261,7 +258,9 @@ main(){
         git_commit
     }
     exec 5>&-;exec 5<&-
-    
+
+    install_sdk
+    auth_sdk
     Multi_process_init $max_process
 
     GOOLE_NAMESPACE=(`grep -v '#' $google_list | xargs -n1 `)
