@@ -1,4 +1,3 @@
-sidecar_injector
 stackdriver-prometheus-sidecar
 statsd-exporter
 test_policybackend
