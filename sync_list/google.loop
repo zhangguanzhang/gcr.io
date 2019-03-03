@@ -1,3 +1,8 @@
+runconduit
+google-samples
+k8s-minikube
+knative-samples
+kubeflow-images-public
 google_containers
 google_samples
 heptio-images
@@ -14,8 +19,3 @@ cloud-datalab
 linkerd-io
 distroless
 kubernetes-helm
-runconduit
-google-samples
-k8s-minikube
-knative-samples
-kubeflow-images-public
