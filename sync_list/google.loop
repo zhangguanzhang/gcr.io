@@ -1,3 +1,4 @@
+google_containers
 google_samples
 heptio-images
 tf-on-k8s-dogfood
@@ -18,4 +19,3 @@ google-samples
 k8s-minikube
 knative-samples
 kubeflow-images-public
-google_containers
