@@ -1,4 +1,3 @@
-google-samples
 k8s-minikube
 knative-samples
 kubeflow-images-public
@@ -20,3 +19,4 @@ linkerd-io
 distroless
 kubernetes-helm
 runconduit
+google-samples
