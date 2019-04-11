@@ -1,7 +1,3 @@
-google_containers
-google_samples
-heptio-images
-tf-on-k8s-dogfood
 google-appengine
 cloudsql-docker
 cloud-marketplace
@@ -20,3 +16,7 @@ k8s-minikube
 knative-samples
 kubeflow-images-public
 kaniko-project
+google_containers
+google_samples
+heptio-images
+tf-on-k8s-dogfood
