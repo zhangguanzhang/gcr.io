@@ -1,3 +1,9 @@
+spinnaker-marketplace
+istio-release
+kubernetes-e2e-test-images
+cloud-builders
+knative-releases
+cloud-datalab
 linkerd-io
 distroless
 kubernetes-helm
@@ -14,9 +20,3 @@ tf-on-k8s-dogfood
 google-appengine
 cloudsql-docker
 cloud-marketplace
-spinnaker-marketplace
-istio-release
-kubernetes-e2e-test-images
-cloud-builders
-knative-releases
-cloud-datalab
