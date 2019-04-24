@@ -1,3 +1,12 @@
+distroless
+kubernetes-helm
+runconduit
+google-samples
+k8s-minikube
+knative-samples
+tekton-releases
+kubeflow-images-public
+kaniko-project
 google_containers
 google_samples
 heptio-images
@@ -11,12 +20,3 @@ cloud-builders
 knative-releases
 cloud-datalab
 linkerd-io
-distroless
-kubernetes-helm
-runconduit
-google-samples
-k8s-minikube
-knative-samples
-tekton-releases
-kubeflow-images-public
-kaniko-project
