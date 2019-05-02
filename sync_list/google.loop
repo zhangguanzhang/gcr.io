@@ -1,3 +1,4 @@
+kubeflow-images-public
 kaniko-project
 google_containers
 google_samples
@@ -19,4 +20,3 @@ google-samples
 k8s-minikube
 knative-samples
 tekton-releases
-kubeflow-images-public
