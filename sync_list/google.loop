@@ -1,3 +1,4 @@
+cloud-builders
 knative-releases
 cloud-datalab
 linkerd-io
@@ -19,4 +20,3 @@ cloudsql-docker
 spinnaker-marketplace
 istio-release
 kubernetes-e2e-test-images
-cloud-builders
