@@ -1,4 +1,3 @@
-cli
 cli-bin
 controller
 gcr.io_linkerd-io_controller
