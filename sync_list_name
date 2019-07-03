@@ -1,4 +1,3 @@
-profile-controller
 pytorch-dist-mnist_test
 pytorch-dist-sendrecv-test
 pytorch-mnist-ddp-cpu
