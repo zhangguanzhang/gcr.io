@@ -1,3 +1,6 @@
+google_samples
+heptio-images
+tf-on-k8s-dogfood
 google-appengine
 cloudsql-docker
 spinnaker-marketplace
@@ -17,6 +20,3 @@ tekton-releases
 kubeflow-images-public
 kaniko-project
 google_containers
-google_samples
-heptio-images
-tf-on-k8s-dogfood
