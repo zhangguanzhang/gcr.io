@@ -1,4 +1,3 @@
-apparmor-loader-arm
 apparmor-loader-arm64
 apparmor-loader-ppc64le
 audit-proxy
