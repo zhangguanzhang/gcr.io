@@ -1,4 +1,3 @@
-redis-slave-ppc64le
 redis-slave-s390x
 regression-issue-74839
 regression-issue-74839-amd64
