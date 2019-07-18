@@ -1,4 +1,3 @@
-redis-slave-arm
 redis-slave-arm64
 redis-slave-ppc64le
 redis-slave-s390x
