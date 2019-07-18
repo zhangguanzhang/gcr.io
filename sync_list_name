@@ -1,4 +1,3 @@
-nettest-arm
 nettest-arm64
 nettest-ppc64le
 nettest-s390x
