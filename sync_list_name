@@ -1,4 +1,3 @@
-test-webserver-ppc64le
 test-webserver-s390x
 volume-ceph
 volume-gluster
