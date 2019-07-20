@@ -1,4 +1,3 @@
-liveness-arm64
 liveness-ppc64le
 liveness-s390x
 logs-generator
