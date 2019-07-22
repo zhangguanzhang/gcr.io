@@ -1,4 +1,3 @@
-statsd
 t2t-yelp-cpu
 t2t-yelp-gpu
 tensor2tensor-github
