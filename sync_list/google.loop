@@ -1,4 +1,3 @@
-distroless
 kubernetes-helm
 runconduit
 google-samples
@@ -20,3 +19,4 @@ cloud-builders
 knative-releases
 cloud-datalab
 linkerd-io
+distroless
