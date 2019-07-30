@@ -1,4 +1,3 @@
-localkube-dind-image-devshell
 localkube-image
 minikube-e2e
 nginx-ingress-controller
