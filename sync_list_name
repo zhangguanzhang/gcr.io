@@ -1,4 +1,3 @@
-hostexec-s390x
 image-locality-test-amd64
 image-locality-test-arm
 image-locality-test-arm64
