@@ -1,11 +1,3 @@
-cloud-datalab
-cloudsql-docker
-distroless
-google-appengine
-google_containers
-google_samples
-google-samples
-heptio-images
 istio-release
 k8s-minikube
 kaniko-project

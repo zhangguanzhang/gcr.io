@@ -1,6 +1,10 @@
-datalab-gateway
-datalab-gpu
-datalab-gpu-preview
-datalab-preview
-datalab-server
-mock-datalab
+proxytproxy
+proxyv2
+servicegraph
+servicegraph_debug
+sidecar_initializer
+sidecar_injector
+stackdriver-prometheus-sidecar
+statsd-exporter
+test_policybackend
+zipkin
