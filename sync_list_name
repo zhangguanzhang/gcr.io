@@ -1,4 +1,3 @@
-restic-init-container
 sample-cluster
 scanner-forwarder
 sonobuoy
