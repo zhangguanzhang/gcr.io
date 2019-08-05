@@ -1,6 +1,5 @@
-sidecar_initializer
-sidecar_injector
-stackdriver-prometheus-sidecar
-statsd-exporter
-test_policybackend
-zipkin
+localkube-image
+minikube-e2e
+nginx-ingress-controller
+storage-provisioner
+tensorflow_grpc
