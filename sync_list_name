@@ -1,4 +1,3 @@
-k8s-dns-e2e-ppc64le
 k8s-dns-ginkgo-amd64
 k8s-dns-ginkgo-arm
 k8s-dns-ginkgo-arm64
