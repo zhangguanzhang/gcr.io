@@ -1,4 +1,3 @@
-cloudsql-authenticator
 clusterapi-tester
 cluster-autoscaler
 cluster-proportional-autoscaler-amd64
