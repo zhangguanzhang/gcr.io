@@ -1,9 +1,3 @@
-exec-wrapper
-fluentd-logger
-gitkit
-go-compat
-golang
-iap-watcher
 java-compat
 jetty
 jetty9
