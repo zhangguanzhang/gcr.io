@@ -1,4 +1,3 @@
-heptio-images
 tf-on-k8s-dogfood
 google-appengine
 cloudsql-docker
@@ -20,3 +19,4 @@ kubeflow-images-public
 kaniko-project
 google_containers
 google_samples
+heptio-images
