@@ -1,4 +1,3 @@
-cassandra-e2e-test
 check-metadata-concealment
 cloud-controller-manager
 cloud-controller-manager-amd64
