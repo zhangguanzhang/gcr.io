@@ -1,4 +1,3 @@
-dns
 docker-image-base
 docker-image-base-deducer
 exec-wrapper
