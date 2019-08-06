@@ -1,4 +1,3 @@
-docker-image-base
 docker-image-base-deducer
 exec-wrapper
 fluentd-logger
