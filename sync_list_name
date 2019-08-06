@@ -1,12 +1,3 @@
-openjdk8
-php
-php56
-php70
-php71
-php72
-php-base
-presubmit-debian9
-python
 python-compat
 python-compat-multicore
 ruby
