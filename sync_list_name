@@ -1,4 +1,3 @@
-pytorch-dist-sendrecv-test
 pytorch-mnist-ddp-cpu
 pytorch-mnist-ddp-gpu
 pytorch-mnist-webui
