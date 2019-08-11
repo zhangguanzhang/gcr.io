@@ -1,4 +1,3 @@
-mounttest-arm64
 mounttest-ppc64le
 mounttest-s390x
 mounttest-user
