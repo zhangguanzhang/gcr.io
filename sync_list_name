@@ -1,4 +1,3 @@
-defaultbackend-arm
 defaultbackend-arm64
 defaultbackend-ppc64le
 defaultbackend-s390x
