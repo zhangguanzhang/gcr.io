@@ -1,4 +1,3 @@
-federation-apiserver-arm64
 federation-apiserver-ppc64le
 federation-controller-manager
 federation-controller-manager-amd64
