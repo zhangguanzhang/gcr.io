@@ -1,4 +1,3 @@
-etcd_probe_shyamjvs
 etcd-s390x
 etcd-statefulset-e2e-test
 etcd_version_monitor
