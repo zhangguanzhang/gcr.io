@@ -1,3 +1,5 @@
+cloud-builders
+knative-releases
 cloud-datalab
 linkerd-io
 distroless
@@ -18,5 +20,3 @@ cloudsql-docker
 spinnaker-marketplace
 istio-release
 kubernetes-e2e-test-images
-cloud-builders
-knative-releases
