@@ -1,4 +1,3 @@
-echo-python
 echo-ruby
 env-backend
 env-show
