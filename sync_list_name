@@ -1,4 +1,3 @@
-kube-aggregator-ppc64le
 kube-aggregator-s390x
 kube-apiserver
 kube-apiserver-amd64
