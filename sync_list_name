@@ -1,8 +1,5 @@
-servicegraph
-servicegraph_debug
-sidecar_initializer
-sidecar_injector
-stackdriver-prometheus-sidecar
-statsd-exporter
-test_policybackend
-zipkin
+proxy-init
+proxy-timeline
+reporter
+web
+website-builder
