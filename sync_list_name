@@ -1,4 +1,3 @@
-etcd-amd64
 etcd-arm
 etcd-arm64
 etcd-empty-dir-cleanup
