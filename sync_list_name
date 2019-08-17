@@ -1,4 +1,3 @@
-kubedns-ppc64le
 kube-haproxy
 kube-keepalived-vip
 kubekins-e2e
