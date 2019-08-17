@@ -1,4 +1,3 @@
-kube-apiserver-arm
 kube-apiserver-arm64
 kube-apiserver-ppc64le
 kube-apiserver-s390x
