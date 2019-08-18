@@ -1,4 +1,3 @@
-k8s-dns-kube-dns-arm64
 k8s-dns-kube-dns-ppc64le
 k8s-dns-kube-dns-s390x
 k8s-dns-node-cache
