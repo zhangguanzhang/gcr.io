@@ -1,4 +1,3 @@
-k8s-dns-sidecar-ppc64le
 k8s-dns-sidecar-s390x
 k8s-jupyterhub
 k8s-tpu-operator
