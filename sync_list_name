@@ -1,4 +1,3 @@
-entrypoint-tester-s390x
 fakegitserver
 fakegitserver-amd64
 fakegitserver-arm
