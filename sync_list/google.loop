@@ -1,3 +1,4 @@
+runconduit
 google-samples
 k8s-minikube
 knative-samples
@@ -19,4 +20,3 @@ cloud-datalab
 linkerd-io
 distroless
 kubernetes-helm
-runconduit
