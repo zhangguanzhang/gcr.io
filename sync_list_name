@@ -1,4 +1,3 @@
-defaultbackend-arm64
 defaultbackend-ppc64le
 defaultbackend-s390x
 device-plugin-gpu
