@@ -1,4 +1,3 @@
-defaultbackend-s390x
 device-plugin-gpu
 dnsmasq
 dnsmasq-amd64
