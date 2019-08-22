@@ -1,4 +1,3 @@
-clusterapi-tester-ppc64le
 clusterapi-tester-s390x
 crd-conversion-webhook
 crd-conversion-webhook-amd64
