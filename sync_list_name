@@ -1,4 +1,3 @@
-tf-model-server-cpu
 tf-model-server-gpu
 tf-model-server-http-proxy
 tf-model-server-request-logger
