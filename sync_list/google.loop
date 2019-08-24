@@ -1,3 +1,11 @@
+google_containers
+google_samples
+heptio-images
+tf-on-k8s-dogfood
+google-appengine
+cloudsql-docker
+spinnaker-marketplace
+istio-release
 kubernetes-e2e-test-images
 cloud-builders
 knative-releases
@@ -12,11 +20,3 @@ knative-samples
 tekton-releases
 kubeflow-images-public
 kaniko-project
-google_containers
-google_samples
-heptio-images
-tf-on-k8s-dogfood
-google-appengine
-cloudsql-docker
-spinnaker-marketplace
-istio-release
