@@ -1,4 +1,3 @@
-kube-apiserver-s390x
 kube-controller-manager
 kube-controller-manager-amd64
 kube-controller-manager-arm
