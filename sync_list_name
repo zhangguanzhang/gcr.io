@@ -1,4 +1,3 @@
-k8s-dns-node-cache-s390x
 k8s-dns-sidecar
 k8s-dns-sidecar-amd64
 k8s-dns-sidecar-arm
