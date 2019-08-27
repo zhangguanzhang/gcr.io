@@ -1,1 +1,14 @@
-zookeeper-install-3.5.0-alpha
+pilot
+proxy
+proxy_debug
+proxy_init
+proxytproxy
+proxyv2
+servicegraph
+servicegraph_debug
+sidecar_initializer
+sidecar_injector
+stackdriver-prometheus-sidecar
+statsd-exporter
+test_policybackend
+zipkin
