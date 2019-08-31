@@ -1,4 +1,3 @@
-no-snat-test-arm64
 no-snat-test-ppc64le
 no-snat-test-proxy
 no-snat-test-proxy-amd64
