@@ -1,4 +1,3 @@
-kube-controller-manager-ppc64le
 kube-controller-manager-s390x
 kube-cross
 kubectl
