@@ -1,4 +1,3 @@
-pytorch-mnist-ddp-cpu
 pytorch-mnist-ddp-gpu
 pytorch-mnist-webui
 pytorch-operator
