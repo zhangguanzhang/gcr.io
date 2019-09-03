@@ -1,4 +1,3 @@
-guestbook
 gvisor-admission-webhook-amd64
 haproxy
 healthz-server
