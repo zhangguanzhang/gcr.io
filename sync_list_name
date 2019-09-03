@@ -1,4 +1,3 @@
-no-snat-test-proxy-ppc64le
 no-snat-test-proxy-s390x
 no-snat-test-runner
 no-snat-test-runner-amd64
