@@ -1,4 +1,3 @@
-redis-ppc64le
 redis-s390x
 redis-slave
 redis-slave-amd64
