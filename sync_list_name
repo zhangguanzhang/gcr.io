@@ -1,4 +1,3 @@
-etcd-ppc64le
 etcd_probe_shyamjvs
 etcd-s390x
 etcd-statefulset-e2e-test
