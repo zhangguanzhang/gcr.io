@@ -1,4 +1,3 @@
-dnsmasq-metrics-arm64
 dnsmasq-metrics-ppc64le
 dns-pod-autoscaler
 dns-rc-autoscaler
