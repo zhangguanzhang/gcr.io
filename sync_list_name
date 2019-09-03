@@ -1,4 +1,3 @@
-debian-hyperkube-base-arm64
 debian-hyperkube-base-ppc64le
 debian-hyperkube-base-s390x
 debian-iptables
