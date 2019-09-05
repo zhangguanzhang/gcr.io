@@ -1,4 +1,3 @@
-kube-apiserver
 kube-apiserver-amd64
 kube-apiserver-arm
 kube-apiserver-arm64
