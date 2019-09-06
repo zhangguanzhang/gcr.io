@@ -1,8 +1,4 @@
-localkube-dind-image-devshell
-localkube-image
-minikube-e2e
-nginx-ingress-controller
-storage-provisioner
-teaparty
-teaparty-skaffold
-tensorflow_grpc
+proxy-init
+routeguide
+strest-grpc
+web
