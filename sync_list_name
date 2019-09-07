@@ -1,4 +1,3 @@
-rescheduler-s390x
 resource_consumer
 rethinkdb
 sd-dummy-exporter
