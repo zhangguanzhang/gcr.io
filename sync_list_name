@@ -1,4 +1,3 @@
-volume-gluster
 volume-iscsi
 volume-nfs
 volume-rbd
