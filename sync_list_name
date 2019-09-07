@@ -1,4 +1,3 @@
-recommendationservice
 redis
 redis-bq-pipe
 redis-proxy
