@@ -1,4 +1,3 @@
-google-appengine
 cloudsql-docker
 spinnaker-marketplace
 istio-release
@@ -20,3 +19,4 @@ google_containers
 google_samples
 heptio-images
 tf-on-k8s-dogfood
+google-appengine
