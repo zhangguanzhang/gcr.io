@@ -1,4 +1,3 @@
-echo-server
 envoy
 fairing
 fairing-base
