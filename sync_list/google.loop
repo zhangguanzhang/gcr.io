@@ -1,3 +1,4 @@
+ml-pipeline
 google_containers
 google_samples
 heptio-images
@@ -20,4 +21,3 @@ knative-samples
 tekton-releases
 kubeflow-images-public
 kaniko-project
-ml-pipeline
