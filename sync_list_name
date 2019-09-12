@@ -1,1 +1,10 @@
-website-builder
+api-server
+argoexec
+argoui
+bootstrapper
+envoy
+frontend
+inverse-proxy-agent
+minio
+ml-pipeline-dataflow-tfdv
+ml-pipeline-dataflow-tf-predict
