@@ -1,4 +1,3 @@
-stackdriver-prometheus-sidecar
 statsd-exporter
 test_policybackend
 zipkin
