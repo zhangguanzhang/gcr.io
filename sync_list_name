@@ -1,4 +1,3 @@
-ml-pipeline-dataproc-xgboost
 ml-pipeline-gcp
 ml-pipeline-kubeflow-deployer
 ml-pipeline-kubeflow-tf
