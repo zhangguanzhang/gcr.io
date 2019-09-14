@@ -1,4 +1,3 @@
-k8s-dns-dnsmasq-s390x
 k8s-dns-e2e-amd64
 k8s-dns-e2e-arm
 k8s-dns-e2e-arm64
