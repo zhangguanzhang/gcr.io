@@ -1,4 +1,3 @@
-ml-pipeline-dataproc-predict
 ml-pipeline-dataproc-train
 ml-pipeline-dataproc-transform
 ml-pipeline-dataproc-xgboost
