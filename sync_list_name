@@ -1,6 +1,7 @@
-sidecar_initializer
-sidecar_injector
-stackdriver-prometheus-sidecar
-statsd-exporter
-test_policybackend
-zipkin
+proxy
+proxy-build
+proxy-deps
+proxy-init
+routeguide
+strest-grpc
+web
