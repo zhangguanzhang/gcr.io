@@ -1,4 +1,3 @@
-configure-iap
 echo-server
 envoy
 fairing
