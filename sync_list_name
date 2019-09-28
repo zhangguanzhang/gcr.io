@@ -1,4 +1,3 @@
-kube-controller-manager-s390x
 kube-cross
 kubectl
 kubedash
