@@ -1,4 +1,3 @@
-kube-aggregator-s390x
 kube-apiserver
 kube-apiserver-amd64
 kube-apiserver-arm
