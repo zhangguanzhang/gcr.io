@@ -1,4 +1,3 @@
-ml-pipeline-gcp
 ml-pipeline-kubeflow-deployer
 ml-pipeline-kubeflow-tf
 ml-pipeline-kubeflow-tf-trainer
