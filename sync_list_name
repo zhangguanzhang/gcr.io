@@ -1,4 +1,3 @@
-fairing-serving-base
 fairing-xgboost
 gatekeeper
 gcp-admission-webhook
