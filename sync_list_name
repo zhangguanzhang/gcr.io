@@ -1,4 +1,3 @@
-gke-serviceaccounts-initializer
 go-echo
 grpc-cxx
 hello-app
