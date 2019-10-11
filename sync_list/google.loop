@@ -1,4 +1,3 @@
-kaniko-project
 ml-pipeline
 google_containers
 google_samples
@@ -21,3 +20,4 @@ k8s-minikube
 knative-samples
 tekton-releases
 kubeflow-images-public
+kaniko-project
