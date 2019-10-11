@@ -1,4 +1,3 @@
-kube-proxy-s390x
 kube-registry-proxy
 kubernetes-dashboard
 kubernetes-dashboard-amd64
