@@ -1,3 +1,4 @@
+google_containers
 google_samples
 heptio-images
 tf-on-k8s-dogfood
@@ -20,4 +21,3 @@ tekton-releases
 kubeflow-images-public
 kaniko-project
 ml-pipeline
-google_containers
