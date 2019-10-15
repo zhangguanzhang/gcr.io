@@ -1,4 +1,3 @@
-heptio-images
 tf-on-k8s-dogfood
 google-appengine
 cloudsql-docker
@@ -21,3 +20,4 @@ kaniko-project
 ml-pipeline
 google_containers
 google_samples
+heptio-images
