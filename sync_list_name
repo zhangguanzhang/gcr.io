@@ -1,4 +1,3 @@
-k8s-dns-sidecar-amd64
 k8s-dns-sidecar-arm
 k8s-dns-sidecar-arm64
 k8s-dns-sidecar-e2e-amd64
