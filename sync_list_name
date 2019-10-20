@@ -1,9 +1,5 @@
-prometheus
-proxy
-proxy-identity
-proxy-init
-proxy-timeline
-reporter
-repro-3295
-web
-website-builder
+rosco
+sampleapp
+spinbot
+spinnaker-monitoring
+spinnaker-monitoring-daemon
