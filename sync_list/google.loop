@@ -1,3 +1,4 @@
+google_samples
 heptio-images
 tf-on-k8s-dogfood
 google-appengine
@@ -20,4 +21,3 @@ kubeflow-images-public
 kaniko-project
 ml-pipeline
 google_containers
-google_samples
