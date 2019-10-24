@@ -1,4 +1,3 @@
-hostexec-arm
 hostexec-arm64
 hostexec-ppc64le
 hostexec-s390x
