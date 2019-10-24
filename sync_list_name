@@ -1,4 +1,3 @@
-heapster-influxdb-arm64
 heapster-influxdb-ppc64le
 heapster-influxdb-s390x
 heapster-ppc64le
