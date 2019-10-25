@@ -1,4 +1,3 @@
-kube-dnsmasq-arm
 kube-dnsmasq-arm64
 kube-dnsmasq-ppc64le
 kube-dns-perf-client-amd64
