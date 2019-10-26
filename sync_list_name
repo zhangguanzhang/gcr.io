@@ -1,4 +1,3 @@
-etcd-s390x
 etcd-statefulset-e2e-test
 etcd_version_monitor
 etcd-version-monitor
