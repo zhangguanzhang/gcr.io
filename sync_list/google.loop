@@ -1,3 +1,4 @@
+kubernetes-e2e-test-images
 cloud-builders
 knative-releases
 cloud-datalab
@@ -20,4 +21,3 @@ google-appengine
 cloudsql-docker
 spinnaker-marketplace
 istio-release
-kubernetes-e2e-test-images
