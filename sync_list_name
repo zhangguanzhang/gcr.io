@@ -1,4 +1,3 @@
-fluent-bit-sd
 fluentd-elasticsearch
 fluentd-gcp
 fluentd-gcp-scaler
