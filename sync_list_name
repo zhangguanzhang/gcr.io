@@ -1,4 +1,3 @@
-image-locality-test-arm64
 image-locality-test-ppc64le
 inclusterclient
 inclusterclient-amd64
