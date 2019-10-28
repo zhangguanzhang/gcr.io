@@ -1,4 +1,3 @@
-resnet-deploy
 resnet-preprocess
 resnet-train
 scheduledworkflow
