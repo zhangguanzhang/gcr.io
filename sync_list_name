@@ -1,4 +1,3 @@
-kube-haproxy
 kube-keepalived-vip
 kubekins-e2e
 kubekins-job-builder
