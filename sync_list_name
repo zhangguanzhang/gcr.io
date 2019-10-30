@@ -1,4 +1,3 @@
-kube-controller-manager-arm
 kube-controller-manager-arm64
 kube-controller-manager-ppc64le
 kube-controller-manager-s390x
