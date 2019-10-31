@@ -1,4 +1,3 @@
-rethinkdb
 sd-dummy-exporter
 serve_hostname
 serve_hostname-amd64
