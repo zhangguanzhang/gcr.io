@@ -1,3 +1,4 @@
+spinnaker-marketplace
 istio-release
 kubernetes-e2e-test-images
 cloud-builders
@@ -20,4 +21,3 @@ heptio-images
 tf-on-k8s-dogfood
 google-appengine
 cloudsql-docker
-spinnaker-marketplace
