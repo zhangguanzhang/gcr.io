@@ -1,10 +1,6 @@
-proxytproxy
-proxyv2
-servicegraph
-servicegraph_debug
-sidecar_initializer
-sidecar_injector
-stackdriver-prometheus-sidecar
-statsd-exporter
-test_policybackend
-zipkin
+proxy-init
+proxy-timeline
+reporter
+repro-3295
+web
+website-builder
