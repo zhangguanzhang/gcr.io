@@ -1,4 +1,3 @@
-kube-scheduler-arm64
 kube-scheduler-ppc64le
 kube-scheduler-s390x
 kube-state-metrics
