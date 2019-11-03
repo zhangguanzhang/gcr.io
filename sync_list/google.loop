@@ -1,3 +1,6 @@
+linkerd-io
+distroless
+kubernetes-helm
 runconduit
 google-samples
 k8s-minikube
@@ -18,6 +21,3 @@ kubernetes-e2e-test-images
 cloud-builders
 knative-releases
 cloud-datalab
-linkerd-io
-distroless
-kubernetes-helm
