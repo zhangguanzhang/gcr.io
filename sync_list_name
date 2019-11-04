@@ -1,9 +1,8 @@
-vpa-admission-controller
-vpa-recommender
-vpa-updater
-watcher-daemonset
-webhooks-publisher
-zeppelin
-zeppelin-proxy
-zookeeper-install
-zookeeper-install-3.5.0-alpha
+servicegraph
+servicegraph_debug
+sidecar_initializer
+sidecar_injector
+stackdriver-prometheus-sidecar
+statsd-exporter
+test_policybackend
+zipkin
