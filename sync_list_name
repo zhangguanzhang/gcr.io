@@ -1,4 +1,3 @@
-ml-pipeline-dataproc-analyze
 ml-pipeline-dataproc-create-cluster
 ml-pipeline-dataproc-delete-cluster
 ml-pipeline-dataproc-predict
