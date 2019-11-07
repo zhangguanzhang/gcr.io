@@ -1,4 +1,3 @@
-kube-state-metrics-ppc64le
 kube-state-metrics-s390x
 kube-ui
 leader-elector
