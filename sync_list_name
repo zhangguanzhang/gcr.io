@@ -1,4 +1,3 @@
-resnet-preprocess
 resnet-train
 scheduledworkflow
 viewer-crd-controller
