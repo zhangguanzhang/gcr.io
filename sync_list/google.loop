@@ -1,4 +1,3 @@
-tf-on-k8s-dogfood
 google-appengine
 cloudsql-docker
 spinnaker-marketplace
@@ -21,3 +20,4 @@ ml-pipeline
 google_containers
 google_samples
 heptio-images
+tf-on-k8s-dogfood
