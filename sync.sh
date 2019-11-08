@@ -63,8 +63,8 @@ git_commit(){
             COPY docker/* /root/
 EOF
         rm -rf docker
-        docker build -t status_image_name .
-        docker push status_image_name
+        docker build -t $status_image_name .
+        docker push $status_image_name
         git add -A
         git commit -m "Synchronizing completion at $TODAY"
         git push -u origin develop
@@ -282,8 +282,8 @@ main(){
         COPY docker/* /root/
 EOF
     rm -rf docker
-    docker build -t status_image_name .
-    docker push status_image_name
+    docker build -t $status_image_name .
+    docker push $status_image_name
     if [ $COMMIT_FILES_COUNT -ne 0 ];then
         rm -rf docker
         git add -A
