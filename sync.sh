@@ -37,7 +37,7 @@ mkdir -p /tmp/docker
 docker run -d --rm --name data $status_image_name sleep 10
 while read file;do
     docker cp data:/root/$file /tmp/docker/
-done < <(docker exec name ls /root/)
+done < <(docker exec data ls /root/)
 
 #--------------------------
 
