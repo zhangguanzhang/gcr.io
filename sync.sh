@@ -266,7 +266,7 @@ main(){
     while read repo;do
         [ "$i" -eq "$list_loop_break_count" ] && break
         image_pull gcr.io/$repo google
-        sed -i 1d txt
+        sed -i 1d "$google_list"
         echo $repo >> "$google_list"
         let i++
     done < "$google_list"
