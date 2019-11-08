@@ -209,6 +209,7 @@ sync_domain_repo(){
     path=${1%/}
     local name tag
     while read name tag;do
+        [ "$(( (`date +%s` - start_time)/60 ))"  -gt "$push_time" ] && break
         img_name=$( sed 's#/#'"$interval"'#g'<<<$name )
         trvis_live       
         read -u5
