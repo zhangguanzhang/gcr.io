@@ -79,11 +79,10 @@ gcloud(){
 gcloud_auth(){
     mkdir /tmp/gcloud
     docker run --rm -v /tmp/gcloud:/root/.config/gcloud \
-      -v $PWD/gcloud.config.json:/root/gcloud.config.json \
-      gcr.io/google.com/cloudsdktool/cloud-sdk:latest gcloud auth activate-service-account --key-file=$HOME/gcloud.config.json ||
+      -v $HOME/gcloud.config.json:/root/gcloud.config.json \
+      gcr.io/google.com/cloudsdktool/cloud-sdk:latest gcloud auth activate-service-account --key-file=/root/gcloud.config.json ||
         echo "gcloud service account is exsits"
 }
-
 
 #  GCR_IMAGE_NAME  tag  REPO_IMAGE_NAME
 image_tag(){
