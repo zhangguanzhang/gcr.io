@@ -56,7 +56,7 @@ git_commit(){
     local COMMIT_FILES_COUNT=$(git status -s|wc -l)
     local TODAY=$(date +%F)
     if [[ $(( (`date +%s` - start_time)/60 ))  -gt $push_time ]];then
-        [ z "$docker_time" ] && docker_time=`date +%s`
+        [ -z "$docker_time" ] && docker_time=`date +%s`
         if [[ $(( (`date +%s` - docker_time)/60 ))  -gt 2 ]];then
             mkdir docker
             cp -a /tmp/docker/* docker/
