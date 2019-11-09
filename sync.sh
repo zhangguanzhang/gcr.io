@@ -55,9 +55,9 @@ Multi_process_init() {
 git_commit(){
     local COMMIT_FILES_COUNT=$(git status -s|wc -l)
     local TODAY=$(date +%F)
-    if [[ $(( (`date +%s` - $start_time)/60 ))  -gt $push_time ]];then
+    if [[ $(( (`date +%s` - start_time)/60 ))  -gt $push_time ]];then
         [ z "$docker_time" ] && docker_time=`date +%s`
-        if [[ $(( (`date +%s` - $docker_time)/60 ))  -gt 2 ]];then
+        if [[ $(( (`date +%s` - docker_time)/60 ))  -gt 2 ]];then
             mkdir docker
             cp -a /tmp/docker/* docker/
             cat>Dockerfile<<-EOF
@@ -196,7 +196,7 @@ image_pull(){
 }
 
 sync_commit_check(){
-    [[ $(( (`date +%s` - $start_time)/60 )) -gt $push_time || -n "$(docker images | awk '$NF~"GB"')" ]] &&
+    [[ $(( (`date +%s` - start_time)/60 )) -gt $push_time || -n "$(docker images | awk '$NF~"GB"')" ]] &&
         echo ture || false
 }
 
@@ -207,14 +207,14 @@ hub_tag_exist(){
 
 
 trvis_live(){
-    [ $(( (`date +%s` - $live_start_time)/60 )) -ge 8 ] && { live_start_time=$(date +%s);echo 'for live in the travis!'; }
+    [ $(( (`date +%s` - live_start_time)/60 )) -ge 8 ] && { live_start_time=$(date +%s);echo 'for live in the travis!'; }
 }
 
 sync_domain_repo(){
     path=${1%/}
     local name tag
     while read name tag;do
-        [ "$(( (`date +%s` - $start_time)/60 ))"  -gt "$push_time" ] && break
+        [ "$(( (`date +%s` - start_time)/60 ))"  -gt "$push_time" ] && break
         img_name=$( sed 's#/#'"$interval"'#g'<<<$name )
         trvis_live       
         read -u5
