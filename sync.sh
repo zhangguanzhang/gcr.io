@@ -62,9 +62,9 @@ git_commit(){
             FROM zhangguanzhang/alpine
             COPY docker/* /root/
 EOF
-        rm -rf docker Dockerfile
         docker build -t $status_image_name .
         docker push $status_image_name
+        rm -rf docker Dockerfile
         if [[ $COMMIT_FILES_COUNT -ne 0 ]];then
             git add -A
             git commit -m "Synchronizing completion at $TODAY"
@@ -284,9 +284,9 @@ main(){
         FROM zhangguanzhang/alpine
         COPY docker/* /root/
 EOF
-    rm -rf docker Dockerfile
     docker build -t $status_image_name .
     docker push $status_image_name
+    rm -rf docker Dockerfile
     if [ $COMMIT_FILES_COUNT -ne 0 ];then
         git add -A
         git commit -m "Synchronizing completion at $TODAY"
