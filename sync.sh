@@ -67,6 +67,7 @@ EOF
             docker build -t $status_image_name .
             docker push $status_image_name
             rm -rf docker Dockerfile
+            docker_time=`date +%s`
         fi
         if [[ $COMMIT_FILES_COUNT -ne 0 ]];then
             git add -A
