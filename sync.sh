@@ -55,16 +55,19 @@ Multi_process_init() {
 git_commit(){
     local COMMIT_FILES_COUNT=$(git status -s|wc -l)
     local TODAY=$(date +%F)
-    if [[ $(( (`date +%s` - start_time)/60 ))  -gt $push_time ]];then
-        mkdir docker
-        cp -a /tmp/docker/* docker/
-        cat>Dockerfile<<-EOF
-            FROM zhangguanzhang/alpine
-            COPY docker/* /root/
+    if [[ $(( (`date +%s` - $start_time)/60 ))  -gt $push_time ]];then
+        [ z "$docker_time" ] && docker_time=`date +%s`
+        if [[ $(( (`date +%s` - $docker_time)/60 ))  -gt 2 ]];then
+            mkdir docker
+            cp -a /tmp/docker/* docker/
+            cat>Dockerfile<<-EOF
+                FROM zhangguanzhang/alpine
+                COPY docker/* /root/
 EOF
-        docker build -t $status_image_name .
-        docker push $status_image_name
-        rm -rf docker Dockerfile
+            docker build -t $status_image_name .
+            docker push $status_image_name
+            rm -rf docker Dockerfile
+        fi
         if [[ $COMMIT_FILES_COUNT -ne 0 ]];then
             git add -A
             git commit -m "Synchronizing completion at $TODAY"
@@ -193,7 +196,7 @@ image_pull(){
 }
 
 sync_commit_check(){
-    [[ $(( (`date +%s` - start_time)/60 )) -gt $push_time || -n "$(docker images | awk '$NF~"GB"')" ]] &&
+    [[ $(( (`date +%s` - $start_time)/60 )) -gt $push_time || -n "$(docker images | awk '$NF~"GB"')" ]] &&
         echo ture || false
 }
 
@@ -204,14 +207,14 @@ hub_tag_exist(){
 
 
 trvis_live(){
-    [ $(( (`date +%s` - live_start_time)/60 )) -ge 8 ] && { live_start_time=$(date +%s);echo 'for live in the travis!'; }
+    [ $(( (`date +%s` - $live_start_time)/60 )) -ge 8 ] && { live_start_time=$(date +%s);echo 'for live in the travis!'; }
 }
 
 sync_domain_repo(){
     path=${1%/}
     local name tag
     while read name tag;do
-        [ "$(( (`date +%s` - start_time)/60 ))"  -gt "$push_time" ] && break
+        [ "$(( (`date +%s` - $start_time)/60 ))"  -gt "$push_time" ] && break
         img_name=$( sed 's#/#'"$interval"'#g'<<<$name )
         trvis_live       
         read -u5
