@@ -6,7 +6,7 @@ readonly CUR_DIR=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd)
 MY_REPO=zhangguanzhang
 status_image_name=zhangguanzhang/gcr-data
 interval=.
-: ${max_process:=10} ${max_per:=70} ${push_time:=45}
+: ${max_process:=5} ${max_per:=70} ${push_time:=45}
 
 # 
 
@@ -14,6 +14,7 @@ google_list=/tmp/docker/google.loop
 hub_check_time=/tmp/docker/hub_check.time
 hub_check_ns=/tmp/docker/hub_check.ns
 hub_check_name=/tmp/docker/hub_check.name
+sync_at=/tmp/docker/sync.at
     
 [ -z "$start_time" ] && start_time=$(date +%s)
 git_init(){
@@ -77,18 +78,65 @@ EOF
     fi
 }
 
-
-gcloud(){
-    docker run --rm -v /tmp/gcloud:/root/.config/gcloud  gcr.io/google.com/cloudsdktool/cloud-sdk:latest gcloud "$@"
+add_yum_repo() {
+cat > /etc/yum.repos.d/google-cloud-sdk.repo <<EOF
+[google-cloud-sdk]
+name=Google Cloud SDK
+baseurl=https://packages.cloud.google.com/yum/repos/cloud-sdk-el7-x86_64
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
+       https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+EOF
 }
 
-gcloud_auth(){
-    mkdir /tmp/gcloud
-    docker run --rm -v /tmp/gcloud:/root/.config/gcloud \
-      -v $HOME/gcloud.config.json:/root/gcloud.config.json \
-      gcr.io/google.com/cloudsdktool/cloud-sdk:latest gcloud auth activate-service-account --key-file=/root/gcloud.config.json ||
+add_apt_source(){
+export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+}
+
+install_sdk() {
+    local OS_VERSION=$(grep -Po '(?<=^ID=")\w+' /etc/os-release)
+    local OS_VERSION=${OS_VERSION:-ubuntu}
+    if [[ $OS_VERSION =~ "centos" ]];then
+        if ! [ -f /etc/yum.repos.d/google-cloud-sdk.repo ];then
+            add_yum_repo
+            yum -y install google-cloud-sdk
+        else
+            echo "gcloud is installed"
+        fi
+    elif [[ $OS_VERSION =~ "ubuntu" ]];then
+        if ! [ -f /etc/apt/sources.list.d/google-cloud-sdk.list ];then
+            add_apt_source
+            sudo apt-get -y update && sudo apt-get -y install google-cloud-sdk
+        else
+             echo "gcloud is installed"
+        fi
+    fi
+}
+
+auth_sdk(){
+    local AUTH_COUNT=$(gcloud auth list --format="get(account)"|wc -l)
+    if [ $AUTH_COUNT -eq 0 ];then
+        gcloud auth activate-service-account --key-file=$HOME/gcloud.config.json
+    else
         echo "gcloud service account is exsits"
+    fi
 }
+
+# gcloud(){
+#     docker run --rm -v /tmp/gcloud:/root/.config/gcloud  gcr.io/google.com/cloudsdktool/cloud-sdk:latest gcloud "$@"
+# }
+
+# gcloud_auth(){
+#     mkdir /tmp/gcloud
+#     docker run --rm -v /tmp/gcloud:/root/.config/gcloud \
+#       -v $HOME/gcloud.config.json:/root/gcloud.config.json \
+#       gcr.io/google.com/cloudsdktool/cloud-sdk:latest gcloud auth activate-service-account --key-file=/root/gcloud.config.json ||
+#         echo "gcloud service account is exsits"
+# }
 
 
 #  GCR_IMAGE_NAME  tag  REPO_IMAGE_NAME
@@ -265,13 +313,15 @@ main(){
     }
     exec 5>&-;exec 5<&-
     #开始同步gcr
-    gcloud_auth
+
+    install_sdk
+    auth_sdk
     Multi_process_init $max_process
 
     list_loop_break_count=`wc -l $google_list | cut -d " " -f1`
     i=0
     while read repo;do
-        [ "$i" -eq "$list_loop_break_count" ] && break
+        [ "$i" -ge "$list_loop_break_count" ] && break
         image_pull gcr.io/$repo google
         sed -i 1d "$google_list"
         echo $repo >> "$google_list"
